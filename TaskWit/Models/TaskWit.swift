@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TaskWit: Codable, Identifiable {
+struct TaskWit: Codable, Identifiable, Hashable {
     var id = UUID()
     var title: String = ""
     var notes: String = ""

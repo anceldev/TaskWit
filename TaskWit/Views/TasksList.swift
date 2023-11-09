@@ -24,12 +24,16 @@ struct TasksList: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     else {
-                        List {
-                            ForEach(viewModel.tasks) { task in
-                                Text(task.title)
-                            }
+                        List(viewModel.tasks) { task in
+                            NavigationLink(task.title, value: task)
+//                            ForEach(viewModel.tasks, id: \.self) { task in
+//                                NavigationLink(task.title, value: task)
+//                            }
                         }
                     }
+                }
+                .navigationDestination(for: TaskWit.self) { detailTask in
+                    DetailTask(task: detailTask)
                 }
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {

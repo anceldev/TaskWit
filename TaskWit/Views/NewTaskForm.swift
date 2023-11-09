@@ -21,7 +21,7 @@ struct NewTaskForm: View {
     @Bindable var viewModel: TasksViewModel
     @Environment(\.dismiss) var dismiss
     @State var newTask = TaskWit()
-    
+   
     var customLabel: some View {
         HStack {
             Text(newTask.priority.rawValue)

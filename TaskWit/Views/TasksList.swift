@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TasksList: View {
     
-    @State var viewModel = Tasks()
+    @State var viewModel = TasksViewModel()
     @State private var showNewTaskForm = false
     
     var body: some View {
@@ -18,7 +18,7 @@ struct TasksList: View {
                 VStack{
                     if viewModel.tasks.isEmpty {
                         VStack {
-                            Text("No items to display. Please press \"New Task\" to add new items")
+                            Text("No items to display.\nPlease press \"New Task\" to add new items")
                                 .multilineTextAlignment(.center)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -36,6 +36,12 @@ struct TasksList: View {
                         Button("New Task") {
                             showNewTaskForm.toggle()
                         }
+                        .padding(4)
+                        .font(.body)
+                        .foregroundStyle(.blackText)
+                        .background(.cyanApp)
+                        .clipShape(RoundedRectangle(cornerRadius: 50))
+                        
                     }
                 }
                 .background(.backgroundApp)
@@ -44,6 +50,9 @@ struct TasksList: View {
                         .navigationBarBackButtonHidden(true)
                 })
             }
+        }
+        .onAppear {
+            viewModel.loadTasks()
         }
     }
 }

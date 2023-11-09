@@ -18,7 +18,7 @@ struct BackButton: View {
 }
 
 struct NewTaskForm: View {
-    @Bindable var viewModel: Tasks
+    @Bindable var viewModel: TasksViewModel
     @Environment(\.dismiss) var dismiss
     @State var newTask = TaskWit()
     
@@ -65,7 +65,6 @@ struct NewTaskForm: View {
                     } label: {
                         customLabel
                     }
-                    
                 }
                 Button {
                     saveTask()
@@ -98,11 +97,11 @@ struct NewTaskForm: View {
     }
     func saveTask() {
         if !newTask.title.isEmpty {
-            viewModel.tasks.append(newTask)
+            viewModel.creatTask(with: newTask)
         }
     }
 }
 
 #Preview {
-    NewTaskForm(viewModel: Tasks())
+    NewTaskForm(viewModel: TasksViewModel())
 }

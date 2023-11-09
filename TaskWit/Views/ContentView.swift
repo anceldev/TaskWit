@@ -13,12 +13,13 @@ struct ContentView: View {
             VStack {
                 Image(systemName: "pencil.circle")
                     .imageScale(.large)
-                    .foregroundStyle(.tint)
+                    //.foregroundStyle(.tint)
                 Text("TaskWit")
                 NavigationLink("View tasks") {
                     TasksList()
                 }
             }
+            .foregroundStyle(.blackText)
             .padding()
         }
     }

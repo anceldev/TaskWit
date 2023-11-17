@@ -37,7 +37,7 @@ struct NewTaskForm: View {
                 .frame(width: 100, height: 38)
         }
     }
-
+    
     var body: some View {
         NavigationStack {
             VStack {

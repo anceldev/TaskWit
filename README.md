@@ -4,7 +4,7 @@
 You will create a to-do list application by using your preferred mobile application development framework. People are finding it harder and harder to remember and manage daily tasks in this fast-paced world. By creating a to-do list app, users can create and manage their daily tasks more easily.
 
 ## Requirements
-* The application should open with a splash screen
+- [ ] The application should open with a splash screen
 * There should be **three categories** at the top of the screen:
     * Pending
     * Completed

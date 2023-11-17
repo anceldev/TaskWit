@@ -27,13 +27,25 @@ class TasksViewModel {
         }
     }
     func loadTasks() async {
-//        Task {
-            do {
-                self.tasks = try await tasksRepositories.fetchTasks()
+        do {
+            self.tasks = try await tasksRepositories.fetchTasks()
+        }
+        catch {
+            fatalError("[TasksRepositoreis] Cant load tasks from server.")
+        }
+        if !tasks.isEmpty {
+            checkDates()
+        }
+    }
+    
+    private func checkDates() {
+        for item in tasks {
+            if item.state != .completed {
+                if item.deadline > Date() {
+                    let indexOfItem = tasks.firstIndex(of: item)
+                    tasks[indexOfItem!].state = .overdue
+                }
             }
-            catch {
-                fatalError("[TasksRepositoreis] Cant load tasks from server.")
-            }
-//        }
+        }
     }
 }

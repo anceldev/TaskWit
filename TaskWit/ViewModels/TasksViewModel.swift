@@ -41,8 +41,10 @@ class TasksViewModel {
     private func checkDates() {
         for item in tasks {
             if item.state != .completed {
+                let indexOfItem = tasks.firstIndex(of: item)
                 if item.deadline > Date() {
-                    let indexOfItem = tasks.firstIndex(of: item)
+                    tasks[indexOfItem!].state = .pending
+                } else {
                     tasks[indexOfItem!].state = .overdue
                 }
             }

@@ -26,6 +26,7 @@
 		B4B50EC02AFC2BF500D7E32A /* NewTaskForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B50EBF2AFC2BF500D7E32A /* NewTaskForm.swift */; };
 		B4B50EC22AFC371700D7E32A /* TasksListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B50EC12AFC371700D7E32A /* TasksListsView.swift */; };
 		B4F344B12B07A84A00302A05 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F344B02B07A84A00302A05 /* TaskRow.swift */; };
+		B4F344B52B07C5C400302A05 /* EditFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F344B42B07C5C400302A05 /* EditFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B4B50EBF2AFC2BF500D7E32A /* NewTaskForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskForm.swift; sourceTree = "<group>"; };
 		B4B50EC12AFC371700D7E32A /* TasksListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListsView.swift; sourceTree = "<group>"; };
 		B4F344B02B07A84A00302A05 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		B4F344B42B07C5C400302A05 /* EditFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				B4B50EBF2AFC2BF500D7E32A /* NewTaskForm.swift */,
 				B4670D9C2AFD435A008A78A1 /* DetailTask.swift */,
 				B4777FFA2B0678D100DA4447 /* ListView.swift */,
+				B4F344B42B07C5C400302A05 /* EditFormView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				B48B6B942AFFEE3A00FFABD9 /* Tab.swift in Sources */,
 				B4F344B12B07A84A00302A05 /* TaskRow.swift in Sources */,
 				B4670D9B2AFD34F7008A78A1 /* TaskRepositories.swift in Sources */,
+				B4F344B52B07C5C400302A05 /* EditFormView.swift in Sources */,
 				B4B50EAD2AFC26CB00D7E32A /* TaskWitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

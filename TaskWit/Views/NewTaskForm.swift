@@ -104,10 +104,25 @@ struct NewTaskForm: View {
                             .font(.body).bold()
                             .padding(15)
                             .foregroundStyle(.blackApp)
-                            .frame(minWidth: 200)
+                            .frame(minWidth: 150)
                             .background(.yellowApp)
                             .clipShape(Capsule())
                     }
+                }
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                            .font(.body).bold()
+                            .padding(15)
+                            .foregroundStyle(.blackApp)
+                            .frame(minWidth: 150)
+                            .background(.redApp)
+                            .clipShape(Capsule())
+                        
+                    }
+
                 }
             }
             .navigationBarBackButtonHidden()

@@ -9,16 +9,16 @@ You will create a to-do list application by using your preferred mobile applicat
     * Pending
     * Completed
     * Overdue
-* If the to-do list is empty, show an empty state message: “No items to display. Please press “Add” to add new items.”
-* Show a fixed navigation bar at the bottom of the screen with an “Add” button, which allows the user to create a new task
+- [x] If the to-do list is empty, show an empty state message: “No items to display. Please press “Add” to add new items.”
+- [x] Show a fixed navigation bar at the bottom of the screen with an “Add” button, which allows the user to create a new task
 - [x] Clicking the “Add” button will show a screen with the following elements:
     * Title (text input field)
     * Description (text input field)
     * Deadline (iOS or Android default date and time selector)
     * Confirm button
     * Cancel button
-* Each new task should have a deadline later than the current time. Adding a task will save it to the file storage in the text file.
-* Users can perform different actions by selecting single or multiple items:
+- [] Each new task should have a deadline later than the current time. Adding a task will save it to the file storage in the text file.
+- [] Users can perform different actions by selecting single or multiple items:
     * “Pending” category
         * One item selected: the user can press “Delete,” “Edit,” or “Complete”
         * Multiple items selected: the user can press “Delete” or “Complete”
@@ -28,7 +28,7 @@ You will create a to-do list application by using your preferred mobile applicat
     * “Completed” category
         * One item selected: the user can press “Delete” or “Edit”
         * Multiple items selected: the user can press “Delete” or “Edit”
-* When the user presses on the “Edit” button, a screen should pop up with:
+- [] When the user presses on the “Edit” button, a screen should pop up with:
     * Title (text input field with pre-filled data)
     * Description (text input field with pre-filled data)
     * Deadline (iOS or Android default date and time selector with pre-filled data)

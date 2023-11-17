@@ -13,6 +13,7 @@ struct TasksListsView: View {
     @State private var showNewTaskForm = false
     
     @State private var selectedTab: Tab?
+    
     @Environment(\.colorScheme) private var scheme
     
     var body: some View {
@@ -20,7 +21,19 @@ struct TasksListsView: View {
             ZStack {
                 Color.blackApp
                 VStack(spacing: 15) {
-                        CustomTabBar()
+                    CustomTabBar()
+                    if viewModel.tasks.isEmpty {
+                        VStack {
+                            Spacer()
+                            Text("No items to display.\nPlease press\n\"+\"\nto add new items")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .padding(20)
+                                .multilineTextAlignment(.center)
+                            Spacer()
+                        }
+                        
+                    }else {
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 0) {
                                 ListView(viewModel: viewModel, stateTasks: .pending)
@@ -39,6 +52,7 @@ struct TasksListsView: View {
                         .scrollIndicators(.hidden)
                         .scrollTargetBehavior(.paging)
                         .scrollClipDisabled()
+                    }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .background(.blackApp)
@@ -61,7 +75,7 @@ struct TasksListsView: View {
                 NewTaskForm(viewModel: viewModel)
             })
         }
-        .task{
+        .task {
             await viewModel.loadTasks()
         }
     }

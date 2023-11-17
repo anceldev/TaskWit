@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct BackButton: View {
     var body: some View {
@@ -13,7 +14,7 @@ struct BackButton: View {
             Image(systemName: "chevron.left")
             Text("Back")
         }
-        .foregroundStyle(.blackText)
+        .foregroundStyle(.white)
     }
 }
 
@@ -21,70 +22,67 @@ struct NewTaskForm: View {
     @Bindable var viewModel: TasksViewModel
     @Environment(\.dismiss) var dismiss
     @State var newTask = TaskWit()
-   
+    
     var customLabel: some View {
         HStack {
             Text(newTask.priority.rawValue)
-                .foregroundStyle(.blackText)
+                .foregroundStyle(.white)
                 .font(.body)
         }
         .padding([.leading, .trailing], 25)
         .frame(height: 32)
         .overlay {
             RoundedRectangle(cornerRadius: 8)
-                .strokeBorder(Color.orangeApp, lineWidth: 1)
+                .strokeBorder(Color.yellowApp, lineWidth: 1)
                 .frame(width: 100, height: 38)
         }
     }
-    
+
     var body: some View {
         NavigationStack {
             VStack {
-                TextField("Title:", text: $newTask.title)
-                    .font(.title)
-                    .foregroundStyle(.blackText)
-                TextField("Note:", text: $newTask.notes)
-                    .foregroundStyle(.blueText)
+                
+                Section {
+                    TextField(" Title:", text: $newTask.title)
+                        .padding(7)
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .background(.blackGrayApp)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                } header: {
+                    Text("Task Name")
+                        .foregroundStyle(.grayApp)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                Section {
+                    TextField("Notes:", text: $newTask.notes)
+                        .padding(7)
+                        .font(.body)
+                        .foregroundStyle(.white)
+                        .frame(height: 48)
+                        .background(.blackGrayApp)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                } header: {
+                    Text("Notes")
+                        .foregroundStyle(.grayApp)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
                 DatePicker("Due date", selection: $newTask.deadline, in: Date()...)
                 HStack {
-                    /*Picker("Priority", selection: $newTask.priority) {
-                        ForEach(Priority.allCases, id: \.self) { priority in
-                            Text(priority.rawValue)
-                        }
-                    }
-                    .foregroundStyle(.orangeApp)
-                    .accentColor(.orangeApp)*/
-                    Spacer()
-                    
-                    Menu {
-                        Picker("Priority", selection: $newTask.priority) {
-                            ForEach(Priority.allCases, id: \.self) { priority in
-                                Text(priority.rawValue)
-                            }
+                    Picker(selection: $newTask.priority) {
+                        ForEach(Priority.allCases, id:\.self) { item in
+                            Text(item.rawValue)
+                            
                         }
                     } label: {
-                        customLabel
+                        Text("Priority")
                     }
+                    .pickerStyle(.segmented)
                 }
-                Button {
-                    saveTask()
-                    dismiss()
-                } label: {
-                    HStack {
-                        Image(systemName: "checkmark.square")
-                        Text("Save")
-                            .font(.footnote)
-                    }
-                    .foregroundStyle(.white)
-                    .frame(width: 140)
-                }
-                .buttonStyle(.bordered)
-                .background(.orangeApp)
-                .clipShape(RoundedRectangle(cornerRadius: 7))
                 Spacer()
             }
             .padding()
-            .background(.backgroundApp)
+            .background(.blackApp)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     BackButton()
@@ -93,6 +91,26 @@ struct NewTaskForm: View {
                         }
                 }
             }
+            .navigationTitle("Add Task")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        saveTask()
+                        dismiss()
+                    } label: {
+                        Text("Save")
+                            .font(.body).bold()
+                            .padding(15)
+                            .foregroundStyle(.blackApp)
+                            .frame(minWidth: 200)
+                            .background(.yellowApp)
+                            .clipShape(Capsule())
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden()
         }
     }
     func saveTask() {

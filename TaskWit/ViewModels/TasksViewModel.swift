@@ -26,14 +26,14 @@ class TasksViewModel {
             }
         }
     }
-    func loadTasks() {
-        Task {
+    func loadTasks() async {
+//        Task {
             do {
                 self.tasks = try await tasksRepositories.fetchTasks()
             }
             catch {
                 fatalError("[TasksRepositoreis] Cant load tasks from server.")
             }
-        }
+//        }
     }
 }

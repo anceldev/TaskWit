@@ -12,15 +12,24 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 Image(systemName: "pencil.circle")
-                    .imageScale(.large)
-                    //.foregroundStyle(.tint)
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundStyle(.yellowApp)
+                //.foregroundStyle(.tint)
                 Text("TaskWit")
-                NavigationLink("View tasks") {
-                    TasksList()
+                    .font(.largeTitle)
+                    .foregroundStyle(.white)
+                NavigationLink {
+                    TasksListsView()
+                } label: {
+                    Text("View Tasks")
+                        .font(.title3).bold()
+                        .foregroundStyle(.grayApp)
                 }
             }
-            .foregroundStyle(.blackText)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
+            .background(.blackApp)
         }
     }
 }

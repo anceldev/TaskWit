@@ -4,14 +4,14 @@
 You will create a to-do list application by using your preferred mobile application development framework. People are finding it harder and harder to remember and manage daily tasks in this fast-paced world. By creating a to-do list app, users can create and manage their daily tasks more easily.
 
 ## Requirements
-- [ ] The application should open with a splash screen
-* There should be **three categories** at the top of the screen:
+- [x] The application should open with a splash screen
+- [x] There should be **three categories** at the top of the screen:
     * Pending
     * Completed
     * Overdue
 * If the to-do list is empty, show an empty state message: “No items to display. Please press “Add” to add new items.”
 * Show a fixed navigation bar at the bottom of the screen with an “Add” button, which allows the user to create a new task
-* Clicking the “Add” button will show a screen with the following elements:
+- [x] Clicking the “Add” button will show a screen with the following elements:
     * Title (text input field)
     * Description (text input field)
     * Deadline (iOS or Android default date and time selector)

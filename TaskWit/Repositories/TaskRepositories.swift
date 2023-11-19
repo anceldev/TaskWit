@@ -20,21 +20,32 @@ class TaskRepositories {
         }
         catch {
             print("[TasksRepositories] Can't create task document.")
-            throw TaskError.uncreated
+            throw TaskError.NotCreated
         }
     }
     func fetchTasks() async throws -> [TaskWit]{
-        let snapshot = try await db.order(by: "deadline", descending: true).getDocuments() // get documents collection ordered by timestamp.
+        let snapshot = try await db.getDocuments() // get documents collection ordered by timestamp.
         let tasks = snapshot.documents.compactMap { document in // Map documents (ignoring nil values) in a tasks array
             try! document.data(as: TaskWit.self) // Decode each document in a new TaskWit object
         }
         return tasks
     }
+    func updateTask(_ editedTask: TaskWit) async throws {
+        let taskDocument = db.document("\(editedTask.id)")
+        do {
+            try await taskDocument.setData(from: editedTask)
+        }
+        catch {
+            print("[TasktRepositories] Can't update data in document.")
+            throw TaskError.NotUpdated
+        }
+    }
     
     
     enum TaskError: Error {
-        case uncreated
-        case unfetched
+        case NotCreated
+        case NotFetched
+        case NotUpdated
     }
 }
 

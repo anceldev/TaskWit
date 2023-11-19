@@ -33,18 +33,22 @@ struct TasksListsView: View {
                             Spacer()
                         }
                         
-                    }else {
+                    }
+                    else {
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 0) {
-                                ListView(viewModel: viewModel, stateTasks: .pending)
+                                ListView(stateTasks: .pending)
                                     .id(Tab.todo)
                                     .containerRelativeFrame(.horizontal)
-                                ListView(viewModel: viewModel, stateTasks: .overdue)
+                                    .environment(viewModel)
+                                ListView(stateTasks: .overdue)
                                     .id(Tab.overdue)
                                     .containerRelativeFrame(.horizontal)
-                                ListView(viewModel: viewModel, stateTasks: .completed)
+                                    .environment(viewModel)
+                                ListView(stateTasks: .completed)
                                     .id(Tab.completed)
                                     .containerRelativeFrame(.horizontal)
+                                    .environment(viewModel)
                             }
                             
                         }
@@ -72,7 +76,8 @@ struct TasksListsView: View {
                 }
             }
             .sheet(isPresented: $showNewTaskForm, content: {
-                NewTaskForm(viewModel: viewModel)
+                NewTaskForm()
+                    .environment(viewModel)
             })
         }
         .task {

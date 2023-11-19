@@ -19,7 +19,9 @@ struct BackButton: View {
 }
 
 struct NewTaskForm: View {
-    @Bindable var viewModel: TasksViewModel
+    @Environment (TasksViewModel.self) var viewModel
+    
+//    @Bindable var viewModel: TasksViewModel
     @Environment(\.dismiss) var dismiss
     @State var newTask = TaskWit()
     
@@ -136,5 +138,7 @@ struct NewTaskForm: View {
 }
 
 #Preview {
-    NewTaskForm(viewModel: TasksViewModel())
+//    NewTaskForm(viewModel: TasksViewModel())
+    NewTaskForm()
+        .environment(TasksViewModel())
 }

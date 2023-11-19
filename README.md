@@ -17,8 +17,8 @@ You will create a to-do list application by using your preferred mobile applicat
     * Deadline (iOS or Android default date and time selector)
     * Confirm button
     * Cancel button
-- [] Each new task should have a deadline later than the current time. Adding a task will save it to the file storage in the text file.
-- [] Users can perform different actions by selecting single or multiple items:
+- [x] Each new task should have a deadline later than the current time. Adding a task will save it to the file storage in the text file. I also included to store the tasks in Firebase Firestore.
+- [ ] Users can perform different actions by selecting single or multiple items:
     * “Pending” category
         * One item selected: the user can press “Delete,” “Edit,” or “Complete”
         * Multiple items selected: the user can press “Delete” or “Complete”
@@ -28,7 +28,7 @@ You will create a to-do list application by using your preferred mobile applicat
     * “Completed” category
         * One item selected: the user can press “Delete” or “Edit”
         * Multiple items selected: the user can press “Delete” or “Edit”
-- [] When the user presses on the “Edit” button, a screen should pop up with:
+- [ ] When the user presses on the “Edit” button, a screen should pop up with:
     * Title (text input field with pre-filled data)
     * Description (text input field with pre-filled data)
     * Deadline (iOS or Android default date and time selector with pre-filled data)

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ListView: View {
+    @Environment (TasksViewModel.self) var viewModel
     
-    var viewModel: TasksViewModel
+//    var viewModel: TasksViewModel
     var stateTasks: StateTask
     
     var filteredList: [TaskWit] {
@@ -17,7 +18,7 @@ struct ListView: View {
         //        TaskWit.testArray
     }
     @State private var showEditForm = false
-    @State var indexOfTask: Int = 0
+    @State var taskItem: TaskWit?
     
     var body: some View {
         ScrollView(.vertical) {
@@ -25,11 +26,14 @@ struct ListView: View {
                 ForEach(filteredList, id: \.id) { item in
                     TaskRow(item: item)
                 }
-                
             })
             .padding(15)
+            .onChange(of: taskItem, {
+                showEditForm.toggle()
+            })
             .sheet(isPresented: $showEditForm, content: {
-                EditFormView(item: viewModel.tasks[indexOfTask])
+                EditFormView(taskItem: taskItem!)
+                    .environment(viewModel)
             })
         }
         .background(.blackApp)
@@ -71,9 +75,7 @@ struct ListView: View {
                         }
                     Spacer()
                     Button {
-                        indexOfTask = viewModel.tasks.firstIndex(where: { $0.id == item.id })!
-                        print(indexOfTask)
-                        showEditForm.toggle()
+                        taskItem = item
                     } label: {
                         Image(systemName: "pencil")
                             .foregroundStyle(.grayApp)
@@ -89,5 +91,7 @@ struct ListView: View {
 }
 
 #Preview {
-    ListView(viewModel: TasksViewModel(), stateTasks: StateTask.pending)
+//    ListView(viewModel: TasksViewModel(), stateTasks: StateTask.pending)
+    ListView(stateTasks: StateTask.pending)
+        .environment(TasksViewModel())
 }

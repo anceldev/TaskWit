@@ -25,6 +25,7 @@
 		B4B50EBE2AFC2B5600D7E32A /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B50EBD2AFC2B5600D7E32A /* TasksViewModel.swift */; };
 		B4B50EC02AFC2BF500D7E32A /* NewTaskForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B50EBF2AFC2BF500D7E32A /* NewTaskForm.swift */; };
 		B4B50EC22AFC371700D7E32A /* TasksListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B50EC12AFC371700D7E32A /* TasksListsView.swift */; };
+		B4E05F242B0BDC53001B75B1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E05F232B0BDC53001B75B1 /* NotificationManager.swift */; };
 		B4F344B12B07A84A00302A05 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F344B02B07A84A00302A05 /* TaskRow.swift */; };
 		B4F344B52B07C5C400302A05 /* EditFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F344B42B07C5C400302A05 /* EditFormView.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		B4B50EBD2AFC2B5600D7E32A /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		B4B50EBF2AFC2BF500D7E32A /* NewTaskForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskForm.swift; sourceTree = "<group>"; };
 		B4B50EC12AFC371700D7E32A /* TasksListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListsView.swift; sourceTree = "<group>"; };
+		B4E05F232B0BDC53001B75B1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B4F344B02B07A84A00302A05 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		B4F344B42B07C5C400302A05 /* EditFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 			children = (
 				B4B50EBB2AFC2A9100D7E32A /* TaskWit.swift */,
 				B48B6B932AFFEE3A00FFABD9 /* Tab.swift */,
+				B4E05F232B0BDC53001B75B1 /* NotificationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				B4B50EBE2AFC2B5600D7E32A /* TasksViewModel.swift in Sources */,
 				B4B50EAF2AFC26CB00D7E32A /* ContentView.swift in Sources */,
 				B4B50EC02AFC2BF500D7E32A /* NewTaskForm.swift in Sources */,
+				B4E05F242B0BDC53001B75B1 /* NotificationManager.swift in Sources */,
 				B4B50EBC2AFC2A9100D7E32A /* TaskWit.swift in Sources */,
 				B48B6B942AFFEE3A00FFABD9 /* Tab.swift in Sources */,
 				B4F344B12B07A84A00302A05 /* TaskRow.swift in Sources */,

@@ -16,7 +16,13 @@ class TasksViewModel {
     private var tasksRepositories = TaskRepositories()
     
     func creatTask(with newTask: TaskWit) {
+        if tasks.isEmpty {
+            NotificationManager.instance.requestAuthorization()
+        }
         tasks.append(newTask)
+        
+        NotificationManager.instance.scheduleNotification(item: newTask)
+        
         Task {
             do {
                 try await tasksRepositories.createNewTask(newTask)
@@ -24,7 +30,7 @@ class TasksViewModel {
                 saveTasksLocally()
             }
             catch {
-                fatalError("[TasksRepositories] Service can't create new Task. I'll be available just locally.")
+                fatalError("[TasksRepositories] Service can't create new Task on remote server. I'll be available just locally.")
             }
         }
     }

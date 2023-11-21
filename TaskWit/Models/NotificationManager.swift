@@ -35,12 +35,30 @@ class NotificationManager {
         var notificationDateComponents = DateComponents()
         notificationDateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: notificationDate)
         
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: notificationDateComponents, repeats: true)
         let request = UNNotificationRequest(
             identifier: item.id.uuidString,
             content: content,
             trigger: trigger
         )
-        UNUserNotificationCenter.current().add(request)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Notification scheduled at: \(notificationDateComponents)")
+            }
+        }
+    }
+    
+    func cancelNotification(identifier id: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
+        print("Tastk with id \(id) has been deleted")
+    }
+    
+    func cancelAllNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 }

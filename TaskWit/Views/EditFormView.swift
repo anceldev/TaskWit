@@ -40,7 +40,7 @@ struct EditFormView: View {
                         .foregroundStyle(.grayApp)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-//                DatePicker("Due date", selection: $taskItem.deadline, in: Date()...)
+                DatePicker("Due date", selection: $taskItem.deadline, in: Date()...)
                 HStack {
                     Picker(selection: $taskItem.priority) {
                         ForEach(Priority.allCases, id:\.self) { item in
@@ -95,9 +95,7 @@ struct EditFormView: View {
                             .frame(minWidth: 150)
                             .background(.redApp)
                             .clipShape(Capsule())
-                        
                     }
-
                 }
             }
             .navigationBarBackButtonHidden()

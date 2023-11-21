@@ -132,7 +132,7 @@ struct NewTaskForm: View {
     }
     func saveTask() {
         if !newTask.title.isEmpty {
-            viewModel.creatTask(with: newTask)
+            viewModel.createTask(with: newTask)
         }
     }
 }

@@ -15,12 +15,11 @@ class TasksViewModel {
     
     private var tasksRepositories = TaskRepositories()
     
-    func creatTask(with newTask: TaskWit) {
+    func createTask(with newTask: TaskWit) {
         if tasks.isEmpty {
             NotificationManager.instance.requestAuthorization()
         }
         tasks.append(newTask)
-        
         NotificationManager.instance.scheduleNotification(item: newTask)
         
         Task {
@@ -50,11 +49,14 @@ class TasksViewModel {
         }
     }
     func saveEditedTask(_ editedTask: TaskWit) async {
+        NotificationManager.instance.cancelNotification(identifier: editedTask.id.uuidString) // Cancel notifications associated with id of task
+        
         if let index = tasks.firstIndex(where: { $0.id == editedTask.id }) {
             tasks[index] = editedTask
+            NotificationManager.instance.scheduleNotification(item: editedTask)
             checkDates()
             sortTasks()
-            
+
             // Update task in firestore
             do {
                 try await tasksRepositories.updateTask(editedTask)

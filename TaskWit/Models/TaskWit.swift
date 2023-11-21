@@ -14,7 +14,6 @@ struct TaskWit: Codable, Identifiable, Hashable {
     var deadline = Date()
     var priority: Priority = .low
     var state: StateTask = .pending
-    
 }
 enum Priority: String, Codable, CaseIterable{
     case low = "Low"
@@ -25,6 +24,7 @@ enum StateTask: String, Codable, CaseIterable{
     case pending = "Pending"
     case overdue = "Overdue"
     case completed = "Completed"
+    
     
     var colorState: Color {
         switch self {
